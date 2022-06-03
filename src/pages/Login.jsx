@@ -64,7 +64,7 @@ const Login = (props) => {
       const data = {
         access_token: tokenResponse.access_token,
       };
-      const response = await fetch("http://localhost:8000/api/v1/auth/google", {
+      const response = await fetch("https://challange-7-tim-3.herokuapp.com/api/v1/auth/google", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
