@@ -34,7 +34,7 @@ const Login = (props) => {
         email,
         password,
       };
-      const response = await fetch("http://localhost:8000/api/v1/login", {
+      const response = await fetch("https://challange-7-tim-3.herokuapp.com/api/v1/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
