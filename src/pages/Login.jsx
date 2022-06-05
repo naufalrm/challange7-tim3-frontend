@@ -9,6 +9,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../style.css";
 
+const { REACT_APP_API_OAUTH, REACT_APP_API_LOGIN } = process.env;
+
 const Login = (props) => {
   const navigate = useNavigate();
 
@@ -34,7 +36,7 @@ const Login = (props) => {
         email,
         password,
       };
-      const response = await fetch("http://localhost:8000/api/v1/login", {
+      const response = await fetch(REACT_APP_API_LOGIN, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +66,7 @@ const Login = (props) => {
       const data = {
         access_token: tokenResponse.access_token,
       };
-      const response = await fetch("https://challange-7-tim-3.herokuapp.com/api/v1/auth/google", {
+      const response = await fetch(REACT_APP_API_OAUTH, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

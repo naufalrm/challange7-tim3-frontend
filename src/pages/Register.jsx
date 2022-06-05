@@ -8,6 +8,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../style.css";
 
+const { REACT_APP_API_OAUTH, REACT_APP_API_REGISTER} = process.env;
+
 const Register = (props) => {
   const navigate = useNavigate();
 
@@ -38,7 +40,7 @@ const Register = (props) => {
         password,
         username,
       };
-      const response = await fetch("http://localhost:8000/api/v1/register", {
+      const response = await fetch(REACT_APP_API_REGISTER, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +68,7 @@ const Register = (props) => {
       const data = {
         access_token: tokenResponse.access_token,
       };
-      const response = await fetch("http://localhost:8000/api/v1/auth/google", {
+      const response = await fetch(REACT_APP_API_OAUTH, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
